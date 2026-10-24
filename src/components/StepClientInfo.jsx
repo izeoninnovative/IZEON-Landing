@@ -82,7 +82,7 @@ export default function StepClientInfo({ formData, updateField, onNext }) {
           </label>
           <div className="relative">
             <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none">
-              <Icons.Phone className="w-4 h-4 fill-current text-blue-800" />
+              <Icons.Phone className="w-4 h-4   text-slate-400" />
             </div>
             <input
               type="tel"
