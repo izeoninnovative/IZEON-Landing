@@ -21,7 +21,7 @@ export function formatWhatsAppMessage(formData, recipientPhone = '') {
 
   const lines = [
     `🚀 *PROJECT REQUIREMENTS BRIEF* 🚀`,
-    `_IZEON Client Project Architect_ | ${dateStr}`,
+    `_IZEON Client Requirements_ | ${dateStr}`,
     `━━━━━━━━━━━━━━━━━━━━`,
     ``,
     `👤 *CLIENT DETAILS:*`,

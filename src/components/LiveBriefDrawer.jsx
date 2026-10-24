@@ -43,7 +43,7 @@ export default function LiveBriefDrawer({ isOpen, onClose, formData, onShareWhat
               </div>
               <div>
                 <h3 className="text-sm font-bold leading-tight">Live WhatsApp Brief</h3>
-                <span className="text-[10px] text-emerald-100">IZEON Scope Architect</span>
+                <span className="text-[10px] text-emerald-100">IZEON</span>
               </div>
             </div>
             <button

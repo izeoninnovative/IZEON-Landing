@@ -219,6 +219,11 @@ export default function App() {
                 <h1 className="text-lg sm:text-2xl md:text-3xl font-extrabold tracking-tight text-white leading-tight">
                   Client Project Scope collection form
                 </h1>
+                <p className="text-blue-100 text-xs sm:text-sm mt-1 max-w-xl leading-relaxed">
+                  Easily specify required features, design preferences,
+                  timeline, and budget. Generate an instant structured brief and
+                  share directly to WhatsApp.
+                </p>
               </div>
             </div>
           </div>
@@ -283,6 +288,7 @@ export default function App() {
                 <StepReviewShare
                   formData={formData}
                   onBack={() => setCurrentStep(5)}
+                  onEditStep={(step) => setCurrentStep(step)}
                   onShareWhatsApp={handleShareWhatsApp}
                 />
               )}

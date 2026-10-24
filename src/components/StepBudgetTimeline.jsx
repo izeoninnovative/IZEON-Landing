@@ -146,7 +146,7 @@ export default function StepBudgetTimeline({
               className="w-full sm:w-auto px-6 py-2.5 rounded-xl bg-[#0b5aa5] hover:bg-[#094c8c] text-white font-bold text-sm flex items-center justify-center gap-2 shadow-md shadow-[#0b5aa5]/25 transition cursor-pointer group"
             >
               <span>Review & Submit </span>
-              <Icons.Share2 className="w-4 h-4 fill-current text-[#FFFFFF]" />
+              <Icons.Cpu className="w-4 h-4 fill-current text-[#FFFFFF]" />
             </button>
           )}
         </div>
