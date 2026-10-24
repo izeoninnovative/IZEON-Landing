@@ -354,32 +354,6 @@ export default function App() {
         formData={formData}
         onShareWhatsApp={handleShareWhatsApp}
       />
-
-      {/* Site Footer */}
-      <footer className="border-t border-slate-200 bg-white py-6 sm:py-8 relative z-10 mt-8 sm:mt-16">
-        <div className="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4 text-center sm:text-left">
-          <div className="flex items-center gap-3">
-            <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-slate-100 p-0.5 border border-slate-200 overflow-hidden shrink-0">
-              <img
-                src={interviewLogo}
-                alt="Logo"
-                className="w-full h-full object-contain"
-              />
-            </div>
-            <div>
-              <span className="text-xs font-bold text-slate-900 block">
-                IZEON Innovations Pvt Ltd
-              </span>
-              <p className="text-[11px] text-slate-500">
-                Enterprise Web Apps • Modern Sites • Digital Engineering
-              </p>
-            </div>
-          </div>
-          <p className="text-[11px] sm:text-xs text-slate-500">
-            Client Brief Architect • Direct WhatsApp Integration
-          </p>
-        </div>
-      </footer>
     </div>
   );
 }

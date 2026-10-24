@@ -171,10 +171,7 @@ export default function StepReviewShare({ formData, onBack, onShareWhatsApp }) {
                 onClick={handleShareClick}
                 className="w-full py-3.5 px-4 sm:px-6 rounded-xl bg-[#25D366] hover:bg-[#20ba59] text-white font-extrabold text-sm sm:text-base flex items-center justify-center gap-2 sm:gap-3 shadow-lg shadow-emerald-500/20 transition duration-150 cursor-pointer transform hover:-translate-y-0.5 active:translate-y-0"
               >
-                <Icons.WhatsApp className="w-5 h-5 fill-current shrink-0" />
-                <span>
-                  Share Brief in WhatsApp ({OFFICIAL_WHATSAPP_DISPLAY})
-                </span>
+                <span>Review & Submit</span>
                 <Icons.ArrowRight className="w-4 h-4 stroke-[2.5] shrink-0" />
               </button>
 
