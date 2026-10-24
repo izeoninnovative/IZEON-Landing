@@ -26,15 +26,15 @@ const INITIAL_FORM_STATE = {
   email: "",
   website: "",
   industry: "",
-  projectType: "website",
-  pageCount: "1 - 6 Pages",
-  selectedFeatures: ["auth-email", "cms-admin", "live-whatsapp", "tech-seo"],
+  projectType: "",
+  pageCount: "",
+  selectedFeatures: [],
   customFeaturesList: [],
-  designStyle: "dark-futuristic",
-  brandStatus: "logo-only",
+  designStyle: "",
+  brandStatus: "",
   inspirationLinks: "",
-  timeline: "standard",
-  budget: "budget-growth",
+  timeline: "",
+  budget: "",
   notes: "",
 };
 
@@ -50,7 +50,8 @@ const STEPS = [
 export default function App() {
   const [formData, setFormData] = useState(() => {
     try {
-      const saved = localStorage.getItem("izeon_req_draft_v2");
+      localStorage.removeItem("izeon_req_draft_v2");
+      const saved = localStorage.getItem("izeon_req_draft_v3");
       if (saved) return JSON.parse(saved);
     } catch {
       // ignore
@@ -66,7 +67,7 @@ export default function App() {
   // Persist draft
   useEffect(() => {
     try {
-      localStorage.setItem("izeon_req_draft_v2", JSON.stringify(formData));
+      localStorage.setItem("izeon_req_draft_v3", JSON.stringify(formData));
     } catch {
       // ignore
     }
@@ -121,7 +122,7 @@ export default function App() {
   };
 
   const handleShareWhatsApp = () => {
-    showToast("🚀 Opening WhatsApp with formatted brief...");
+    showToast("🚀 Requirements submitted successfully!");
     createConfetti();
   };
 
@@ -222,7 +223,7 @@ export default function App() {
                 <p className="text-blue-100 text-xs sm:text-sm mt-1 max-w-xl leading-relaxed">
                   Easily specify required features, design preferences,
                   timeline, and budget. Generate an instant structured brief and
-                  share directly to WhatsApp.
+                  submit directly to our team.
                 </p>
               </div>
             </div>
@@ -335,10 +336,10 @@ export default function App() {
         <button
           type="button"
           onClick={() => setDrawerOpen(true)}
-          className="flex-1 py-2 px-3 rounded-xl bg-emerald-50 text-emerald-700 font-bold text-xs border border-emerald-200 flex items-center justify-center gap-1.5 cursor-pointer"
+          className="flex-1 py-2 px-3 rounded-xl bg-blue-50 text-[#0b5aa5] font-bold text-xs border border-blue-200 flex items-center justify-center gap-1.5 cursor-pointer"
         >
-          <Icons.WhatsApp className="w-4 h-4 fill-current text-[#25D366]" />
-          <span>WhatsApp Brief ({completeness}%)</span>
+          <Icons.FileText className="w-4 h-4 text-[#0b5aa5]" />
+          <span>Project Brief ({completeness}%)</span>
         </button>
 
         {currentStep < 6 && viewMode === "wizard" && (

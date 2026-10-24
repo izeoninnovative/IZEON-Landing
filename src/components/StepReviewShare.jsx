@@ -23,7 +23,6 @@ export default function StepReviewShare({
   onShareWhatsApp,
 }) {
   const [copied, setCopied] = useState(false);
-  const [showQR, setShowQR] = useState(false);
 
   // Computed matching objects
   const pTypeObj = PROJECT_TYPES.find((p) => p.id === formData.projectType);
@@ -76,10 +75,6 @@ export default function StepReviewShare({
     onShareWhatsApp?.();
     window.open(whatsAppUrl, "_blank", "noopener,noreferrer");
   };
-
-  const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=240x240&data=${encodeURIComponent(
-    whatsAppUrl,
-  )}`;
 
   return (
     <div className="space-y-6 sm:space-y-8">
@@ -148,10 +143,10 @@ export default function StepReviewShare({
 
               <div className="bg-slate-50/70 p-2.5 sm:p-3 rounded-xl border border-slate-100">
                 <span className="text-slate-400 block text-[10px] font-bold uppercase tracking-wider">
-                  WhatsApp / Phone
+                  Contact Phone / Mobile
                 </span>
-                <span className="font-bold text-emerald-700 text-xs sm:text-sm mt-0.5 flex items-center gap-1 font-mono truncate">
-                  <Icons.Phone className="w-3.5 h-3.5 shrink-0" />
+                <span className="font-bold text-slate-900 text-xs sm:text-sm mt-0.5 flex items-center gap-1 font-mono truncate">
+                  <Icons.Phone className="w-3.5 h-3.5 shrink-0 text-[#0b5aa5]" />
                   {formData.whatsapp || "Not specified"}
                 </span>
               </div>
@@ -463,26 +458,6 @@ export default function StepReviewShare({
           </div>
         </div>
 
-      {/* QR Code Drawer (shown when QR button is clicked) */}
-      {showQR && (
-        <div className="p-4 sm:p-5 rounded-2xl bg-white border border-slate-200 text-center animate-fadeIn izeon-card-shadow max-w-sm mx-auto">
-          <div className="text-xs font-bold text-slate-800 mb-1">
-            Scan to Send via WhatsApp on Mobile
-          </div>
-          <p className="text-[11px] text-slate-500 mb-3">
-            Open your camera to immediately send this brief directly to{" "}
-            {OFFICIAL_WHATSAPP_DISPLAY}.
-          </p>
-          <div className="inline-block p-2.5 bg-slate-50 rounded-xl shadow-xs border border-slate-200">
-            <img
-              src={qrCodeUrl}
-              alt="WhatsApp QR Code"
-              className="w-36 h-36 mx-auto"
-            />
-          </div>
-        </div>
-      )}
-
       {/* Main Bottom Navigation & Action Bar: Beautifully Aligned */}
       <div className="pt-5 sm:pt-6 border-t border-slate-200 flex flex-col-reverse sm:flex-row items-stretch sm:items-center justify-between gap-3 sm:gap-4">
         {/* Left Side: Navigation Back to Previous Steps */}
@@ -501,32 +476,23 @@ export default function StepReviewShare({
 
         {/* Right Side: Cleanly Aligned Actions */}
         <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-2.5 w-full sm:w-auto">
-          <div className="grid grid-cols-3 sm:flex items-center gap-2">
+          <div className="flex items-center gap-2">
             <button
               type="button"
               onClick={handleCopy}
-              className="py-3 px-3 sm:px-4 rounded-xl bg-white hover:bg-slate-50 border border-slate-200 text-xs font-bold text-slate-700 flex items-center justify-center gap-1.5 transition cursor-pointer shadow-xs"
+              className="flex-1 sm:flex-none py-3 px-3 sm:px-4 rounded-xl bg-white hover:bg-slate-50 border border-slate-200 text-xs font-bold text-slate-700 flex items-center justify-center gap-1.5 transition cursor-pointer shadow-xs"
             >
               <Icons.Copy className="w-3.5 h-3.5 text-[#0b5aa5] shrink-0" />
-              <span>{copied ? "Copied!" : "Copy"}</span>
+              <span>{copied ? "Copied!" : "Copy Brief"}</span>
             </button>
 
             <button
               type="button"
               onClick={handleDownload}
-              className="py-3 px-3 sm:px-4 rounded-xl bg-white hover:bg-slate-50 border border-slate-200 text-xs font-bold text-slate-700 flex items-center justify-center gap-1.5 transition cursor-pointer shadow-xs"
+              className="flex-1 sm:flex-none py-3 px-3 sm:px-4 rounded-xl bg-white hover:bg-slate-50 border border-slate-200 text-xs font-bold text-slate-700 flex items-center justify-center gap-1.5 transition cursor-pointer shadow-xs"
             >
               <Icons.Download className="w-3.5 h-3.5 text-[#0b5aa5] shrink-0" />
-              <span>Download</span>
-            </button>
-
-            <button
-              type="button"
-              onClick={() => setShowQR(!showQR)}
-              className="py-3 px-3 sm:px-4 rounded-xl bg-white hover:bg-slate-50 border border-slate-200 text-xs font-bold text-slate-700 flex items-center justify-center gap-1.5 transition cursor-pointer shadow-xs"
-            >
-              <Icons.QrCode className="w-3.5 h-3.5 text-amber-600 shrink-0" />
-              <span>{showQR ? "Hide QR" : "QR"}</span>
+              <span>Download Brief</span>
             </button>
           </div>
 
@@ -536,8 +502,7 @@ export default function StepReviewShare({
             onClick={handleShareClick}
             className="w-full sm:w-auto py-3 px-6 rounded-xl bg-[#154E98] hover:bg-[#103d77] text-white font-extrabold text-sm sm:text-base flex items-center justify-center gap-2 shadow-lg shadow-[#154E98]/25 transition cursor-pointer transform hover:-translate-y-0.5 active:translate-y-0 shrink-0"
           >
-            <Icons.WhatsApp className="w-5 h-5 fill-current shrink-0" />
-            <span>Send via WhatsApp</span>
+            <span>Submit Requirements</span>
             <Icons.ArrowRight className="w-4 h-4 stroke-[2.5] shrink-0" />
           </button>
         </div>
